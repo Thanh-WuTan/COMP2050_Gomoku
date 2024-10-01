@@ -15,6 +15,14 @@ def Player(args, player, letter):
             agent = RandomPlayer(letter)
         elif player == 'human':
             agent = GMK_HumanPlayer(letter)
+        elif player == 'beginner':
+            agent = GMK_Beginner(letter)
+        elif player == 'intermediate':
+            agent = GMK_Intermediate(letter)
+        elif player == 'advanced':
+            agent = GMK_Advanced(letter)
+        elif player == 'master':
+            agent = GMK_Master(letter)
         else:
             raise ValueError(f"{player.capitalize()} player is not defined for {args.game.capitalize()}.")
     else:
