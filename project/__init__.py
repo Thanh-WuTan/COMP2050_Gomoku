@@ -15,6 +15,8 @@ def Player(args, player, letter):
             agent = RandomPlayer(letter)
         elif player == 'human':
             agent = GMK_HumanPlayer(letter)
+        elif player == 'reflex':
+            agent = GMK_Reflex(letter)
         elif player == 'beginner':
             agent = GMK_Beginner(letter)
         elif player == 'intermediate':
