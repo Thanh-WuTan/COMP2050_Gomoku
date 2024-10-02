@@ -15,8 +15,16 @@ def Player(args, player, letter):
             agent = RandomPlayer(letter)
         elif player == 'human':
             agent = GMK_HumanPlayer(letter)
-        elif player == 'reflex':
-            agent = GMK_Reflex(letter)
+        elif player == 'alphabeta':
+            agent = GMK_AlphaBetaPlayer(letter)
+        elif player == 'mcts_v1':
+            agent = GMK_NaiveMCTS(letter)
+        elif player == 'mcts_v2':
+            agent = GMK_BetterMCTS(letter)
+        elif player == 'qplayer_v1':
+            agent = GMK_TabularQPlayer(letter, size=args.size)
+        elif player == 'qplayer_v2':
+            agent = GMK_ApproximateQPlayer(letter, size=args.size)
         elif player == 'beginner':
             agent = GMK_Beginner(letter)
         elif player == 'intermediate':
@@ -25,6 +33,8 @@ def Player(args, player, letter):
             agent = GMK_Advanced(letter)
         elif player == 'master':
             agent = GMK_Master(letter)
+        elif player == 'reflex':
+            agent = GMK_Reflex(letter)
         else:
             raise ValueError(f"{player.capitalize()} player is not defined for {args.game.capitalize()}.")
     else:
