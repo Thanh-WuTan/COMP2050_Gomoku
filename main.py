@@ -35,5 +35,26 @@ if __name__ == '__main__':
     x_player = Player(args, player=args.player1, letter='X')
     o_player = Player(args, player=args.player2, letter='O')
     
+    if 'Q-Learning' in str(x_player):
+        if args.load is not None:
+            valid_size = f'{args.size}x{args.size}'
+            print(valid_size)
+            if not args.load.startswith(valid_size):
+                invalid_size = args.load.split('_')[0]
+                raise ValueError(f'The weight file is used for {invalid_size} board, but the board for evaluation is {valid_size}. Please use the weight file for {valid_size} board.')
+            x_player.load_weight(args.load)
+        if args.no_train == False:
+            x_player.train(game)
+
+    if 'Q-Learning' in str(o_player):
+        if args.load is not None:
+            valid_size = f'{args.size}x{args.size}'
+            if not args.load.startswith(valid_size):
+                invalid_size = args.load.split('_')[0]
+                raise ValueError(f'The weight file is used for {invalid_size} board, but the board for evaluation is {valid_size}. Please use the weight file for {valid_size} board.')
+            o_player.load_weight(args.load)
+        if args.no_train == False:
+            o_player.train(game)
+
     gameplay = GamePlay(x_player=x_player, o_player=o_player, game=game, mode=args.mode, num_games=args.num_games, timeout=timeout)
     gameplay.run()
