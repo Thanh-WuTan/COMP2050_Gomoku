@@ -1,7 +1,7 @@
 # Gomoku
 ## Project Introduction
 
-In this project, I implemented various AI algorithms for Gomoku, an extension of Tic Tac Toe. I have also completed a previous project on Tic Tac Toe, which can be found here: [COMP2050_TicTacToe](https://github.com/Thanh-WuTan/COMP2050_TicTacToe). 
+In this project, I implemented various AI algorithms for Gomoku, an extension of Tic Tac Toe. I have also completed a previous project on Tic Tac Toe, which can be found here: [TicTacToe](https://github.com/Thanh-WuTan/TicTacToe). 
 
 <p align="center">
   <img src="gomoku.png" width=500/>
